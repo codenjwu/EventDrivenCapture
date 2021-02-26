@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div style="height: 500px; width: 500px">
+                <img id="myRoom" src="~/business-pug-working-on-laptop.jpg" style="max-width: 100%; max-height: 100%;">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-3">
+                    <label for="x">X:</label> <input type="text" id="x" placeholder="X" />
+                    <label for="x">Y:</label> <input type="text" id="y" placeholder="Y" />
+                </div>
+                <div class="col-3">
+                    <label for="x">Width:</label> <input type="text" id="w" placeholder="Width" />
+                    <label for="x">Height:</label> <input type="text" id="h" placeholder="Height" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <input type="button" id="start" value="Start" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/microsoft/signalr/dist/browser/signalr.min.js"></script>
+<script src="~/js/site.js"></script>
