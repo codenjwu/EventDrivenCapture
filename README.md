@@ -28,5 +28,5 @@ private void captured(object sender, CaptureEventArgs[] e) // this could throw e
     this.pictureBox2.Image = e[1]?.Capture?.CapturedImage;
 }
 ```
-### demo
+### Demo
 Demo is provided.
