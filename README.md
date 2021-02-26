@@ -6,7 +6,7 @@ An event driven, continuous screen captruing library that support multi screen a
 ## Easy to use!
 ```csharp
 var handler = new EventDrivenCapture.CaptureEventHandler(new EventDrivenCapture.Capture[1] { new Capture(new CaptureSetting(100,100,100,100)) }); // init handler, require screen area settings
-handler.CapturedEventHandler += captured; // register your captured event handler, like refreshing the screen
+handler.CapturedEventHandler += captured; // register your captured event handler, like refreshing the picturebox
 handler.ExceptionEventHandler += exception; // register your exception handler, 
 handler.CanceledEventHandler += canceled; // register your capture task cancel handler
 handler.Start();
