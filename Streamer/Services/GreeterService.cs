@@ -31,15 +31,14 @@ namespace Streamer
         AutoResetEvent resetEvent = new AutoResetEvent(false);
         public override async Task StreamingServer(StreamRequest request, IServerStreamWriter<StreamImages> responseStream, ServerCallContext context)
         {
-            CaptureEventArgs Capture = new CaptureEventArgs();
-            Capture.Capture = new Capture(new CaptureSetting(request.X, request.Y, request.W, request.H) { ID = request.Index });
-            CaptureEventHandler CaptureEvent = new CaptureEventHandler(new EventDrivenCapture.Capture[1] { Capture.Capture });
-            
-            Capture.Capture.CapturedEventHandler += (sender, args) =>
+            var capture = new Capture(new CaptureSetting(request.X, request.Y, request.W, request.H) { ID = request.Index });
+            CaptureEventHandler CaptureEvent = new CaptureEventHandler(new EventDrivenCapture.Capture[1] { capture });
+
+            capture.CapturedEventHandler += (sender, args) =>
             {
                 var images = new StreamImages();
                 var streamReader = new MemoryStream();
-                Capture.Capture.CapturedImage.Save(streamReader, ImageFormat.Bmp);
+                capture.CapturedImage.Save(streamReader, ImageFormat.Bmp);
                 images.Image = ByteString.CopyFrom(streamReader.ToArray());
                 responseStream.WriteAsync(images).Wait(); // use await here will make event handler async void which actually will not wait for response write to be done, that may cause write to a uncomplete response stream
             };
