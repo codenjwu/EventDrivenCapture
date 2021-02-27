@@ -12,11 +12,12 @@ connection.start().then(function () {
 });
 
 document.getElementById("start").addEventListener("click", function (event) {
+    var i = document.getElementById("index").value;
     var x = document.getElementById("x").value;
     var y = document.getElementById("y").value;
     var w = document.getElementById("w").value;
     var h = document.getElementById("h").value;
-    connection.invoke("SendImage", 0, parseInt(x), parseInt(y), parseInt(w),parseInt(h),false).catch(function (err) {
+    connection.invoke("Subscribe", parseInt(i), parseInt(x), parseInt(y), parseInt(w),parseInt(h),false).catch(function (err) {
         return console.error(err.toString());
     });
     event.preventDefault();
