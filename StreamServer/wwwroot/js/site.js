@@ -17,7 +17,7 @@ document.getElementById("start").addEventListener("click", function (event) {
     var y = document.getElementById("y").value;
     var w = document.getElementById("w").value;
     var h = document.getElementById("h").value;
-    connection.invoke("Subscribe", parseInt(i), parseInt(x), parseInt(y), parseInt(w),parseInt(h),false).catch(function (err) {
+    connection.invoke("SubscribePool", parseInt(i), parseInt(x), parseInt(y), parseInt(w),parseInt(h),false).catch(function (err) {
         return console.error(err.toString());
     });
     event.preventDefault();
